@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h2>Property List</h2>
+
+  {% for property in properties %}
+    <div>
+      <h3>{{ property.name }}</h3>
+      <p>Address: {{ property.address }}</p>
+      <p>Location: {{ property.location }}</p>
+
+      <h4>Units:</h4>
+      <ul>
+        {% for unit in property.unit_set.all %}
+          <li>{{ unit.type }} - Rent: ${{ unit.rent_cost }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+{% endblock %}

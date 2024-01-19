@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Tenant Profile</h2>
+
+  <h3>{{ tenant.username }}</h3>
+  <p>Address: {{ tenant.address }}</p>
+  <p>Document Proof: {{ tenant.document_proof }}</p>
+
+  <h4>Rental Information:</h4>
+  <ul>
+    {% for rental_detail in rental_details %}
+      <li>{{ rental_detail.unit.type }} in {{ rental_detail.unit.property.name }} </li><br>
+      <li>Agreement End Date: {{ rental_detail.agreement_end_date }}</li><br>
+       <li>Monthly Rent Date: {{ rental_detail.monthly_rent_date }}</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'tenant_list' %}">Back</a>
+{% endblock %}
+

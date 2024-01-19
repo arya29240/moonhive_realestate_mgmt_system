@@ -1,0 +1,11 @@
+
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Tenant List</h2>
+
+  <ul>
+    {% for tenant in tenants %}
+      <li><a href="{% url 'tenant_profile' tenant.id %}">{{ tenant.username }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endblock %}
